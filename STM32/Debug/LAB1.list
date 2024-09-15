@@ -37,11 +37,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_macro  00015554  00000000  00000000  00024560  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   00004536  00000000  00000000  00039ab4  2**0
+ 17 .debug_line   00004538  00000000  00000000  00039ab4  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00079849  00000000  00000000  0003dfea  2**0
+ 18 .debug_str    00079849  00000000  00000000  0003dfec  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  000b7833  2**0
+ 19 .comment      00000053  00000000  00000000  000b7835  2**0
                   CONTENTS, READONLY
  20 .debug_frame  00000d2c  00000000  00000000  000b7888  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
@@ -106,11 +106,11 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
  8000158:	f000 f85c 	bl	8000214 <MX_GPIO_Init>
-
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  // LED Red on
 	  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
  800015c:	2200      	movs	r2, #0
  800015e:	2120      	movs	r1, #32
@@ -124,6 +124,7 @@ int main(void)
 	  HAL_Delay(2000);
  8000170:	f44f 60fa 	mov.w	r0, #2000	; 0x7d0
  8000174:	f000 f96e 	bl	8000454 <HAL_Delay>
+	  // LED Yellow on
 	  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
  8000178:	2201      	movs	r2, #1
  800017a:	2120      	movs	r1, #32
