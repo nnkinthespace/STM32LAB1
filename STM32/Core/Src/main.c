@@ -61,6 +61,10 @@ static void MX_GPIO_Init(void);
   * @brief  The application entry point.
   * @retval int
   */
+void display7SEG( int num)
+{
+
+}
 int main(void)
 {
   /* USER CODE BEGIN 1 */
