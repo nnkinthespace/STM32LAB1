@@ -213,13 +213,13 @@ int main(void)
 	  }
 	  else
 	  {
-		  count--;
+		  count++;
 	  }
 	  break;
  80001ea:	e002      	b.n	80001f2 <main+0xa6>
-		  count--;
+		  count++;
  80001ec:	687b      	ldr	r3, [r7, #4]
- 80001ee:	3b01      	subs	r3, #1
+ 80001ee:	3301      	adds	r3, #1
  80001f0:	607b      	str	r3, [r7, #4]
 	  break;
  80001f2:	bf00      	nop

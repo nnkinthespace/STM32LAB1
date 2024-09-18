@@ -128,7 +128,7 @@ int main(void)
 	  }
 	  else
 	  {
-		  count--;
+		  count++;
 	  }
 	  break;
 	  }
