@@ -105,16 +105,30 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  int n = 0;
+  int hours = 0;
+  int minutes = 0;
+  int second = 0;
   while (1)
   {
-	  clearAllClock();
-	  setNumberOnClock(n);
-	  n++;
-	  if (n >= 12)
+	  if (hours == 12)
 	  {
-		  n = 0;
+		  hours = 0;
 	  }
+	  if (minutes == 12)
+	  {
+		  minutes = 0;
+		  hours++;
+	  }
+	  if (second == 12)
+	  {
+		  second = 0;
+		  minutes++;
+	  }
+	  clearAllClock();
+	  setNumberOnClock(hours);
+	  setNumberOnClock(minutes);
+	  setNumberOnClock(second);
+	  second++;
 	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 
