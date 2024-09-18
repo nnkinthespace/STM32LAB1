@@ -68,10 +68,9 @@ void clearAllClock() {
 	                          |LED4_Pin|LED5_Pin|LED6_Pin|LED7_Pin
 	                          |LED8_Pin|LED9_Pin|LED10_Pin|LED11_Pin, GPIO_PIN_SET);
 }
-void test(int n)
+void setNumberOnClock(int num)
 {
-	clearAllClock();
-	HAL_GPIO_WritePin(GPIOA, ledPin[n], RESET);
+	HAL_GPIO_WritePin(GPIOA, ledPin[num], RESET);
 }
 int main(void)
 {
@@ -106,7 +105,8 @@ int main(void)
   int n = 0;
   while (1)
   {
-	  test(n);
+	  clearAllClock();
+	  setNumberOnClock(n);
 	  n++;
 	  if (n >= 12)
 	  {
