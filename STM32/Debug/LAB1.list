@@ -175,8 +175,8 @@ int main(void)
 		count = 0;
  80001c4:	2300      	movs	r3, #0
  80001c6:	607b      	str	r3, [r7, #4]
-		led_status = 1;
- 80001c8:	2301      	movs	r3, #1
+		led_status = 2;
+ 80001c8:	2302      	movs	r3, #2
  80001ca:	603b      	str	r3, [r7, #0]
 	  }
 		  else
@@ -232,8 +232,8 @@ int main(void)
 		count = 0;
  8000218:	2300      	movs	r3, #0
  800021a:	607b      	str	r3, [r7, #4]
-		led_status = 2;
- 800021c:	2302      	movs	r3, #2
+		led_status = 0;
+ 800021c:	2300      	movs	r3, #0
  800021e:	603b      	str	r3, [r7, #0]
 	  }
 	  else
@@ -289,8 +289,8 @@ int main(void)
 			count = 0;
  800026c:	2300      	movs	r3, #0
  800026e:	607b      	str	r3, [r7, #4]
-			led_status = 0;
- 8000270:	2300      	movs	r3, #0
+			led_status = 1;
+ 8000270:	2301      	movs	r3, #1
  8000272:	603b      	str	r3, [r7, #0]
 		  }
 		  else
