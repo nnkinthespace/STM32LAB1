@@ -227,7 +227,10 @@ void display7SEG2(int num) {
 		HAL_GPIO_WritePin(SEG2_6_GPIO_Port, SEG2_6_Pin, GPIO_PIN_RESET);
 	}
 }
+void LedRedOn()
+{
 
+}
 int main(void) {
 	/* USER CODE BEGIN 1 */
 
@@ -285,13 +288,6 @@ int main(void) {
 					count3--;
 				}
 				if (count1 < 3 && count1 >= 1) {
-					// LED 1 RED
-					HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin,
-							GPIO_PIN_RESET);
-					HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin,
-							GPIO_PIN_SET);
-					HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin,
-							GPIO_PIN_SET);
 					//LED 2 YELLOW
 					HAL_GPIO_WritePin(LED_RED_2_GPIO_Port, LED_RED_2_Pin,
 							GPIO_PIN_SET);
@@ -346,13 +342,6 @@ int main(void) {
 							GPIO_PIN_SET);
 					display7SEG(count2);
 					count2--;
-					//LED 2 RED
-					HAL_GPIO_WritePin(LED_RED_2_GPIO_Port, LED_RED_2_Pin,
-							GPIO_PIN_RESET);
-					HAL_GPIO_WritePin(LED_YELLOW_2_GPIO_Port,
-					LED_YELLOW_2_Pin, GPIO_PIN_SET);
-					HAL_GPIO_WritePin(LED_GREEN_2_GPIO_Port,
-					LED_GREEN_2_Pin, GPIO_PIN_SET);
 				}
 				count1--;
 			}
