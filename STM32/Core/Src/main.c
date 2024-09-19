@@ -216,7 +216,6 @@ int main(void) {
 			second = 0;
 			minutes++;
 		}
-		clearAllClock();
 		setNumberOnClock(hours);
 		setNumberOnClock(minutes/5);
 		setNumberOnClock(second/5);
