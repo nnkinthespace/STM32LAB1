@@ -262,7 +262,8 @@ int main(void) {
 	int count3 = 3;
 	int led_status = 0;
 	while (1) {
-		if (led_status == 0) {
+		if (led_status == 0)
+		{
 			if (count1 > 0) {
 				display7SEG(count1);
 				if (count1>=3)
@@ -309,7 +310,7 @@ int main(void) {
 			if (count3 == 0)
 				count3 = 3;
 			if (count1 == 0) {
-				count1 += 5;
+				count1 = 5;
 				led_status = 1;
 			}
 		}
@@ -361,7 +362,7 @@ int main(void) {
 				if (count3 == 0)
 					count3 = 3;
 				if (count1 == 0) {
-					count1 += 5;
+					count1 = 5;
 					led_status = 0;
 				}
 		}
