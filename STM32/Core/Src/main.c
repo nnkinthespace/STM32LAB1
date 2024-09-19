@@ -262,28 +262,27 @@ int main(void) {
 	int count3 = 3;
 	int led_status = 0;
 	while (1) {
-		if (led_status == 0)
-		{
-			if (count1 > 0) {
+		switch (led_status) {
+		case 0: {
+			if (count1 <= 5) {
 				display7SEG(count1);
-				if (count1>=3)
-				{
-				//LED 1 RED
-				HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin,
-						GPIO_PIN_RESET);
-				HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin,
-						GPIO_PIN_SET);
-				HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin,
-						GPIO_PIN_SET);
-				//LED 2 GREEN
-				HAL_GPIO_WritePin(LED_RED_2_GPIO_Port, LED_RED_2_Pin,
-						GPIO_PIN_SET);
-				HAL_GPIO_WritePin(LED_YELLOW_2_GPIO_Port, LED_YELLOW_2_Pin,
-						GPIO_PIN_SET);
-				HAL_GPIO_WritePin(LED_GREEN_2_GPIO_Port, LED_GREEN_2_Pin,
-						GPIO_PIN_RESET);
-				display7SEG2(count3);
-				count3--;
+				if (count1 >= 3) {
+					//LED 1 RED
+					HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin,
+							GPIO_PIN_RESET);
+					HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin,
+							GPIO_PIN_SET);
+					HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin,
+							GPIO_PIN_SET);
+					//LED 2 GREEN
+					HAL_GPIO_WritePin(LED_RED_2_GPIO_Port, LED_RED_2_Pin,
+							GPIO_PIN_SET);
+					HAL_GPIO_WritePin(LED_YELLOW_2_GPIO_Port, LED_YELLOW_2_Pin,
+							GPIO_PIN_SET);
+					HAL_GPIO_WritePin(LED_GREEN_2_GPIO_Port, LED_GREEN_2_Pin,
+							GPIO_PIN_RESET);
+					display7SEG2(count3);
+					count3--;
 				}
 				if (count1 < 3 && count1 >= 1) {
 					// LED 1 RED
@@ -313,12 +312,12 @@ int main(void) {
 				count1 = 5;
 				led_status = 1;
 			}
+			break;
 		}
-		else {
-				if (count1 > 0) {
-					display7SEG2(count1);
-					if (count1>=3)
-					{
+		case 1: {
+			if (count1 <= 5) {
+				display7SEG2(count1);
+				if (count1 >= 3) {
 					//LED 1 GREEN
 					HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin,
 							GPIO_PIN_SET);
@@ -336,43 +335,42 @@ int main(void) {
 					HAL_GPIO_WritePin(LED_GREEN_2_GPIO_Port, LED_GREEN_2_Pin,
 							GPIO_PIN_SET);
 
-					}
-					if (count1 < 3 && count1 >= 1) {
-						// LED 1 YELLOW
-						HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin,
-								GPIO_PIN_SET);
-						HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin,
-								GPIO_PIN_RESET);
-						HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin,
-								GPIO_PIN_SET);
-						display7SEG(count2);
-						count2--;
-						//LED 2 RED
-						HAL_GPIO_WritePin(LED_RED_2_GPIO_Port, LED_RED_2_Pin,
-								GPIO_PIN_RESET);
-						HAL_GPIO_WritePin(LED_YELLOW_2_GPIO_Port,
-						LED_YELLOW_2_Pin, GPIO_PIN_SET);
-						HAL_GPIO_WritePin(LED_GREEN_2_GPIO_Port,
-						LED_GREEN_2_Pin, GPIO_PIN_SET);
-					}
-					count1--;
 				}
-				if (count2 == 0)
-					count2 = 2;
-				if (count3 == 0)
-					count3 = 3;
-				if (count1 == 0) {
-					count1 = 5;
-					led_status = 0;
+				if (count1 < 3 && count1 >= 1) {
+					// LED 1 YELLOW
+					HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin,
+							GPIO_PIN_SET);
+					HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin,
+							GPIO_PIN_RESET);
+					HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin,
+							GPIO_PIN_SET);
+					display7SEG(count2);
+					count2--;
+					//LED 2 RED
+					HAL_GPIO_WritePin(LED_RED_2_GPIO_Port, LED_RED_2_Pin,
+							GPIO_PIN_RESET);
+					HAL_GPIO_WritePin(LED_YELLOW_2_GPIO_Port,
+					LED_YELLOW_2_Pin, GPIO_PIN_SET);
+					HAL_GPIO_WritePin(LED_GREEN_2_GPIO_Port,
+					LED_GREEN_2_Pin, GPIO_PIN_SET);
 				}
+				count1--;
+			}
+			if (count2 == 0)
+				count2 = 2;
+			if (count3 == 0)
+				count3 = 3;
+			if (count1 == 0) {
+				count1 = 5;
+				led_status = 0;
+			}
+		}
 		}
 		HAL_Delay(1000);
-				/* USER CODE END WHILE */
-
-				/* USER CODE BEGIN 3 */
-			/* USER CODE END 3 */
-		}
+		/* USER CODE BEGIN 3 */
+		/* USER CODE END 3 */
 	}
+}
 /**
  * @brief System Clock Configuration
  * @retval None
