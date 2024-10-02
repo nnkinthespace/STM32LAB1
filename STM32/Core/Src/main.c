@@ -227,10 +227,6 @@ void display7SEG2(int num) {
 		HAL_GPIO_WritePin(SEG2_6_GPIO_Port, SEG2_6_Pin, GPIO_PIN_RESET);
 	}
 }
-void LedRedOn()
-{
-
-}
 int main(void) {
 	/* USER CODE BEGIN 1 */
 
