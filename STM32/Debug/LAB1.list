@@ -984,7 +984,8 @@ int main(void) {
  8000826:	2b01      	cmp	r3, #1
  8000828:	d063      	beq.n	80008f2 <main+0xf6>
  800082a:	e0c3      	b.n	80009b4 <main+0x1b8>
-		case 0: {
+		case 0:
+		{
 			if (count1 <= 5) {
  800082c:	68fb      	ldr	r3, [r7, #12]
  800082e:	2b05      	cmp	r3, #5
@@ -1109,7 +1110,8 @@ int main(void) {
 			break;
  80008f0:	e05f      	b.n	80009b2 <main+0x1b6>
 		}
-		case 1: {
+		case 1:
+		{
 			if (count1 <= 5) {
  80008f2:	68fb      	ldr	r3, [r7, #12]
  80008f4:	2b05      	cmp	r3, #5

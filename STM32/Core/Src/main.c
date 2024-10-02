@@ -266,7 +266,8 @@ int main(void) {
 	int led_status = 0;
 	while (1) {
 		switch (led_status) {
-		case 0: {
+		case 0:
+		{
 			if (count1 <= 5) {
 				display7SEG(count1);
 				if (count1 >= 3) {
@@ -310,7 +311,8 @@ int main(void) {
 			}
 			break;
 		}
-		case 1: {
+		case 1:
+		{
 			if (count1 <= 5) {
 				display7SEG2(count1);
 				if (count1 >= 3) {
